@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Access to Soft-Learn - Registration Form</title>
+    <title>Advanced Package Access - Soft-Learn</title>
     <style>
         * {
             margin: 0;
@@ -16,216 +16,168 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
-            padding: 20px 0;
-            overflow-x: hidden;
-        }
-
-        html {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* Internet Explorer 10+ */
-        }
-
-        html::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-            display: none; /* Chrome, Safari, Opera */
+            padding: 20px;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
         header {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px 15px 0 0;
             padding: 30px;
             text-align: center;
             color: white;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 0;
         }
 
         .logo {
             font-size: 2.5em;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: floating 3s ease-in-out infinite;
         }
 
         .tagline {
-            font-size: 1.3em;
+            font-size: 1.2em;
             opacity: 0.9;
             margin-bottom: 10px;
         }
 
-        .subtitle {
-            font-size: 1.1em;
-            opacity: 0.8;
+        .page-title {
+            font-size: 1.5em;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 15px 25px;
+            border-radius: 25px;
+            color: #2d3436;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .info-section {
+        .form-container {
             background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
+            border-radius: 0 0 20px 20px;
+            padding: 40px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            height: fit-content;
-            position: sticky;
-            top: 20px;
+            min-height: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .info-section h2 {
+        .form-description {
+            text-align: center;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .form-description h2 {
             font-size: 2em;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .info-list {
-            list-style: none;
-            margin: 25px 0;
-        }
-
-        .info-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            align-items: center;
+        .form-description p {
             font-size: 1.1em;
-            line-height: 1.5;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 15px;
         }
 
-        .info-list li:last-child {
-            border-bottom: none;
-        }
-
-        .info-list li::before {
-            content: "✨";
-            margin-right: 15px;
-            font-size: 1.2em;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border: 2px solid rgba(102, 126, 234, 0.2);
+        .benefits-list {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            padding: 20px;
             border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-            text-align: center;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
         }
 
-        .highlight-box h3 {
+        .benefits-list h3 {
             color: #667eea;
             margin-bottom: 15px;
-            font-size: 1.4em;
+            font-size: 1.3em;
         }
 
-        .highlight-box p {
-            color: #666;
-            line-height: 1.6;
+        .benefits-list ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .form-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .benefits-list li {
+            margin: 8px 0;
+            padding-left: 25px;
             position: relative;
-            overflow: hidden;
         }
 
-        .form-section::before {
-            content: '';
+        .benefits-list li::before {
+            content: "✨";
             position: absolute;
-            top: 0;
             left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: 0;
         }
 
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .form-header h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .form-header p {
-            font-size: 1.2em;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .form-container {
+        .iframe-wrapper {
+            width: 100%;
+            max-width: 700px;
+            margin: 20px auto;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid #f0f0f0;
-            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: white;
         }
 
-        .form-container:hover {
-            border-color: #667eea;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
-        }
-
-        iframe {
+        .iframe-wrapper iframe {
             width: 100%;
-            height: 1065px;
+            height: 740px;
             border: none;
             display: block;
         }
 
         .back-button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
             color: white;
             padding: 15px 30px;
             border: none;
-            border-radius: 50px;
+            border-radius: 25px;
             font-size: 1.1em;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 20px;
+            margin: 30px 10px 10px 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 20px rgba(116, 185, 255, 0.3);
         }
 
         .back-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 25px rgba(116, 185, 255, 0.4);
         }
 
         .loading-message {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px;
             color: #666;
-            font-size: 1.2em;
-            background: #f8f9fa;
-            border-radius: 15px;
-            margin: 20px 0;
+            font-style: italic;
         }
 
-        .floating {
-            animation: floating 3s ease-in-out infinite;
+        footer {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
         @keyframes floating {
@@ -233,272 +185,198 @@
             50% { transform: translateY(-10px); }
         }
 
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
         }
 
         @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .info-section {
-                position: static;
-                order: 2;
-            }
-            
-            .form-section {
-                padding: 30px 20px;
-            }
-            
-            .form-header h2 {
-                font-size: 1.8em;
-            }
-            
-            iframe {
-                height: 800px;
+            .container {
+                padding: 10px;
             }
             
             header {
-                padding: 25px 20px;
+                padding: 20px;
             }
             
             .logo {
                 font-size: 2em;
             }
+            
+            .page-title {
+                font-size: 1.2em;
+                padding: 12px 20px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .form-description h2 {
+                font-size: 1.5em;
+            }
+            
+            .iframe-wrapper {
+                margin: 10px 0;
+            }
+            
+            .iframe-wrapper iframe {
+                height: 600px;
+            }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
+            .iframe-wrapper iframe {
+                height: 500px;
             }
             
-            .form-section {
-                padding: 20px 15px;
+            body {
+                padding: 10px;
             }
-            
-            iframe {
-                height: 700px;
-            }
-            
-            .info-section {
-                padding: 30px 20px;
-            }
-        }
-
-        .status-indicator {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background: #28a745;
-            border-radius: 50%;
-            margin-right: 10px;
-            animation: pulse 1.5s infinite;
-        }
-
-        .courses-preview {
-            margin-top: 30px;
-            padding: 25px;
-            background: linear-gradient(135deg, rgba(116, 184, 255, 0.1), rgba(102, 126, 234, 0.1));
-            border-radius: 15px;
-        }
-
-        .courses-preview h4 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .course-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .course-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="fade-in">
-            <div class="logo floating">🎓 Soft-Learn</div>
+        <header class="animate-fade-in">
+            <div class="logo">🎓 Soft-Learn</div>
             <div class="tagline">AI-Powered Learning Platform</div>
-            <div class="subtitle">Join thousands of learners advancing their tech skills</div>
+            <div class="page-title">
+                🚀 Advanced Package Access Form
+            </div>
         </header>
 
-        <div class="main-content">
-            <aside class="info-section fade-in">
-                <h2>🚀 What You'll Get</h2>
+        <div class="form-container animate-fade-in">
+            <div class="form-description">
+                <h2>Unlock Premium Learning Features</h2>
+                <p>Fill out this form to gain access to our Advanced Package with exclusive content, premium resources, and enhanced AI-powered learning features.</p>
                 
-                <ul class="info-list">
-                    <li>Instant access to AI-powered learning platform</li>
-                    <li>Comprehensive video tutorials and playlists</li>
-                    <li>Structured documentation and guides</li>
-                    <li>Choice between Basic and Advanced packages</li>
-                    <li>Multi-platform support (Windows, Mac, Linux, Android, iOS)</li>
-                    <li>Private and public learning materials</li>
-                    <li>Community support and resources</li>
-                </ul>
-
-                <div class="highlight-box pulse">
-                    <h3><span class="status-indicator"></span>100% Free Access</h3>
-                    <p>Both Basic and Advanced packages are completely free. No hidden costs, no subscriptions. Just quality education for everyone.</p>
+                <div class="benefits-list">
+                    <h3>What you'll get with Advanced Package:</h3>
+                    <ul>
+                        <li>Premium video content and tutorials</li>
+                        <li>Private learning materials and resources</li>
+                        <li>Advanced AI features and personalization</li>
+                        <li>Priority customer support</li>
+                        <li>Exclusive documentation and guides</li>
+                        <li>Early access to new features</li>
+                    </ul>
                 </div>
+                
+                <p><strong>Note:</strong> After submitting the form, you'll receive access instructions via email within 24-48 hours.</p>
+            </div>
 
-                <div class="courses-preview">
-                    <h4>Available Courses:</h4>
-                    <div class="course-tags">
-                        <span class="course-tag">Front-End</span>
-                        <span class="course-tag">Back-End</span>
-                        <span class="course-tag">Full-Stack</span>
-                        <span class="course-tag">App Dev</span>
-                        <span class="course-tag">UI/UX</span>
-                        <span class="course-tag">Database</span>
-                        <span class="course-tag">Security</span>
-                        <span class="course-tag">DevOps</span>
+            <div class="iframe-wrapper">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdwGkLLVa3ebbPfbaEScQDOuZckIIsEe6md9mzwZBpWnSff7A/viewform?embedded=true" 
+                    width="100%" 
+                    height="740" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    title="Soft-Learn Advanced Package Access Form">
+                    <div class="loading-message">
+                        Loading form... If you're seeing this message, please check your internet connection or try refreshing the page.
                     </div>
-                </div>
+                </iframe>
+            </div>
 
-                <div style="margin-top: 30px; text-align: center;">
-                    <a href="/index.html" class="back-button">← Back to Main Page</a>
-                </div>
-            </aside>
-
-            <main class="form-section fade-in">
-                <div class="form-header">
-                    <h2>Register for Access</h2>
-                    <p>Fill out the form below to receive your access instructions via email. The process takes less than 2 minutes!</p>
-                </div>
-
-                <div class="form-container">
-                    <iframe 
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSdwGkLLVa3ebbPfbaEScQDOuZckIIsEe6md9mzwZBpWnSff7A/viewform?embedded=true" 
-                        width="100%" 
-                        height="1065" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        title="Soft-Learn Access Registration Form"
-                        loading="lazy">
-                        
-                        <div class="loading-message">
-                            <h3>🔄 Loading Registration Form...</h3>
-                            <p>If the form doesn't load, please try refreshing the page or <a href="https://docs.google.com/forms/d/e/1FAIpQLSdwGkLLVa3ebbPfbaEScQDOuZckIIsEe6md9mzwZBpWnSff7A/viewform" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 600;">open it in a new tab</a>.</p>
-                        </div>
-                    </iframe>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px; padding: 25px; background: #f8f9fa; border-radius: 15px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">What Happens Next?</h3>
-                    <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-                        After submitting the form, you'll receive detailed access instructions via email within 24 hours. 
-                        Make sure to check your spam folder and add our email to your contacts.
-                    </p>
-                    <p style="color: #888; font-size: 0.95em;">
-                        <strong>Launch Timeline:</strong> Soft-Learn launches this month! Early registrants get priority access.
-                    </p>
-                </div>
-            </main>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="index.html" class="back-button">← Back to Home</a>
+                <p style="color: #666; margin-top: 15px; font-size: 0.9em;">
+                    Having trouble with the form? Contact us at support@soft-learn.com
+                </p>
+            </div>
         </div>
+
+        <footer class="animate-fade-in">
+            <h3>The Soft-Learn Team</h3>
+            <p>Empowering learners worldwide with AI-driven education</p>
+            <p style="margin-top: 15px; opacity: 0.8;">© 2024 Soft-Learn. All rights reserved.</p>
+        </footer>
     </div>
 
     <script>
         // Add smooth animations on load
         document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
+            // Animate elements as they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        // Handle iframe loading
-        const iframe = document.querySelector('iframe');
-        const loadingMessage = document.querySelector('.loading-message');
-
-        iframe.addEventListener('load', function() {
-            console.log('Form loaded successfully');
-        });
-
-        iframe.addEventListener('error', function() {
-            if (loadingMessage) {
-                loadingMessage.innerHTML = `
-                    <h3>⚠️ Form Loading Issue</h3>
-                    <p>Having trouble loading the form? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdwGkLLVa3ebbPfbaEScQDOuZckIIsEe6md9mzwZBpWnSff7A/viewform" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 600;">Click here to open it directly</a></p>
-                `;
-            }
-        });
-
-        // Add interactive hover effects
-        document.querySelectorAll('.course-tag').forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1)';
-                this.style.transition = 'transform 0.2s ease';
-            });
-            
-            tag.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-            });
-        });
-
-        // Monitor form completion (if accessible)
-        let formCheckInterval;
-        
-        function startFormMonitoring() {
-            formCheckInterval = setInterval(function() {
-                try {
-                    // This would work if same-origin, but Google Forms are cross-origin
-                    // So we'll just provide visual feedback
-                    const formContainer = document.querySelector('.form-container');
-                    if (formContainer) {
-                        formContainer.classList.add('form-active');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                     }
-                } catch (e) {
-                    // Expected for cross-origin iframe
-                }
-            }, 5000);
-        }
+                });
+            }, observerOptions);
 
-        startFormMonitoring();
+            // Observe elements for animation
+            document.querySelectorAll('.animate-fade-in').forEach(el => {
+                observer.observe(el);
+            });
 
-        // Cleanup interval on page unload
-        window.addEventListener('beforeunload', function() {
-            if (formCheckInterval) {
-                clearInterval(formCheckInterval);
-            }
+            // Add loading state for iframe
+            const iframe = document.querySelector('iframe');
+            const wrapper = document.querySelector('.iframe-wrapper');
+            
+            iframe.addEventListener('load', function() {
+                wrapper.style.borderColor = '#667eea';
+                wrapper.style.boxShadow = '0 15px 35px rgba(102, 126, 234, 0.2)';
+            });
+
+            // Handle iframe loading errors
+            iframe.addEventListener('error', function() {
+                const errorMessage = document.createElement('div');
+                errorMessage.innerHTML = `
+                    <div style="padding: 40px; text-align: center; color: #e74c3c;">
+                        <h3>🚨 Form Loading Error</h3>
+                        <p>Unable to load the form. Please try:</p>
+                        <ul style="list-style: none; margin: 20px 0;">
+                            <li>• Refreshing the page</li>
+                            <li>• Checking your internet connection</li>
+                            <li>• Disabling ad blockers temporarily</li>
+                            <li>• <a href="https://docs.google.com/forms/d/e/1FAIpQLSdwGkLLVa3ebbPfbaEScQDOuZckIIsEe6md9mzwZBpWnSff7A/viewform" target="_blank" style="color: #667eea;">Opening the form directly</a></li>
+                        </ul>
+                    </div>
+                `;
+                wrapper.appendChild(errorMessage);
+            });
+
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
         });
-    </script>
 
-    <style>
-        .form-active {
-            border-color: #28a745 !important;
-            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1) !important;
+        // Add click tracking for analytics (if needed)
+        function trackFormInteraction(action) {
+            console.log(`Form interaction: ${action}`);
+            // Add your analytics tracking here
         }
-    </style>
+
+        // Track when user starts interacting with the form
+        document.querySelector('iframe').addEventListener('load', function() {
+            trackFormInteraction('form_loaded');
+        });
+
+        
+    </script>
 </body>
 </html>
